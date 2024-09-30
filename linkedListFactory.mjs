@@ -51,6 +51,28 @@ class LinkedList{
         this.length--;
         return this.getLastNode();
     }
+    contains(value){
+        let node=this.head;
+        let containsBolean=false;
+        for(let i=0;i<this.length;i++){
+            if(value==node.value){
+               containsBolean=true;
+               return containsBolean;
+            }
+            node=node.next;
+        }
+        return containsBolean;
+    }
+    findIndex(value){
+        let node=this.head;
+        for(let i=0;i<this.length;i++){
+            if(node.value==value){
+                return i;
+            }
+            node=node.next;
+        }
+        return null;
+    }
 }
 
 let linkedListObj=new LinkedList(new Node());
@@ -73,3 +95,5 @@ console.log(`Head ${linkedListObj.getHead()}`)
 console.log(`Node at index 1 has a value of ${linkedListObj.getNodeAt(3).value}`)
 
 console.log(linkedListObj.pop());
+console.log(linkedListObj.contains(6));
+console.log(linkedListObj.findIndex('First Node'));
