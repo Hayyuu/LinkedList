@@ -43,6 +43,14 @@ class LinkedList{
     size(){
         return `Size ${this.length}`;
     }
+    pop(){
+        let lastNode=this.getLastNode();
+        let prevNode=this.getNodeAt(this.length-2);
+        lastNode=prevNode;
+        prevNode.next=null;
+        this.length--;
+        return this.getLastNode();
+    }
 }
 
 let linkedListObj=new LinkedList(new Node());
@@ -62,5 +70,6 @@ console.log(linkedListObj.size());
 console.log(`last node ${linkedListObj.getLastNode().value}`);
 console.log(`Head ${linkedListObj.getHead()}`)
 
-console.log(`Node at index 1 has a value of ${linkedListObj.getNodeAt(1).value}`)
+console.log(`Node at index 1 has a value of ${linkedListObj.getNodeAt(3).value}`)
 
+console.log(linkedListObj.pop());
