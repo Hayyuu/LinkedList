@@ -5,9 +5,6 @@ class LinkedList{
         this.head=head;
         this.length=0;
     }
-    getNodes() {
-        return this.Node;
-    }
     getLastNode(){
         let lastNode=this.head;
         if(lastNode){
@@ -15,6 +12,18 @@ class LinkedList{
                 lastNode=lastNode.next;
                 }
             return lastNode;
+        }
+    }
+    getHead() {
+        return this.head.value;
+    }
+    getNodeAt(index){
+        let node=this.head;
+        for(let i=0;i<this.length;i++){
+            if(i==index){
+                return node;
+            }
+            node=node.next;
         }
     }
     append(newNode){
@@ -51,5 +60,7 @@ console.log(linkedListObj.append(lastNode));
 console.log(linkedListObj.size());
 
 console.log(`last node ${linkedListObj.getLastNode().value}`);
+console.log(`Head ${linkedListObj.getHead()}`)
 
+console.log(`Node at index 1 has a value of ${linkedListObj.getNodeAt(1).value}`)
 
