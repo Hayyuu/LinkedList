@@ -86,6 +86,22 @@ class LinkedList{
         
         return str;
     }
+    insertAt(value,index){
+        let currentNode=this.head;
+        for(let i=0;i<this.length;i++){
+            // currentNode=this.getNodeAt(i);
+            if(i==index){
+                let newNode=new Node(value);
+                newNode.next=currentNode.value;
+                currentNode.value=newNode.value;
+                this.length++;
+                return this;
+            }
+            currentNode=currentNode.next;
+        }
+        return this;
+    }
+    
 }
 
 let linkedListObj=new LinkedList(new Node());
@@ -108,7 +124,10 @@ console.log(`Head ${linkedListObj.getHead()}`)
 console.log(`Node at index 1 has a value of ${linkedListObj.getNodeAt(3).value}`)
 
 console.log(linkedListObj.pop());
-console.log(linkedListObj);
 console.log(`List contains the value 6 ${linkedListObj.contains(6)}`);
 console.log(`Index of 'First Node' is ${linkedListObj.findIndex('First Node')}`);
 console.log(`String representation ${linkedListObj.toString()}`);
+console.log(linkedListObj.insertAt(7,1));
+console.log(linkedListObj.getNodeAt(1));
+// console.log(linkedListObj);
+
