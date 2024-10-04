@@ -100,9 +100,7 @@ class LinkedList{
         let str="";
         let node=this.head;
         for(let i=0;i<this.length;i++){
-            console.log("Inside tostring"+ node.value)
             if(node==this.getLastNode()){
-                console.log(node);
                 str+=node.value;
                 str+=" -> "+node.next
                 return str;
@@ -133,6 +131,20 @@ class LinkedList{
         }
         
         return this;
+    }
+    removeAt(index){
+        let node=this.getNodeAt(index);
+        let prevNode=null;
+        if(index==0){
+            this.head=this.getNodeAt(index+1);
+        }
+        else{
+            prevNode=this.getNodeAt(index-1);
+            prevNode.next=this.getNodeAt(index+1);
+            
+        }
+        this.length--;
+        return node;
     }
   
 }
@@ -171,4 +183,9 @@ console.log(linkedListObj.insertAt(8,1));
 
 console.log(linkedListObj.toString());
 console.log(linkedListObj.size());
-console.log ('end')
+console.log(linkedListObj.removeAt(0));
+console.log(linkedListObj.removeAt(1));
+console.log(linkedListObj.size());
+
+
+console.log(linkedListObj.toString());
